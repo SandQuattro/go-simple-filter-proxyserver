@@ -161,7 +161,7 @@ func handleTunneling(ctx context.Context, clientConn net.Conn, destHost string) 
 
 	remoteConn, err := net.Dial("tcp", destHost)
 	if err != nil {
-		logger.Printf("Failed to connect to host %s: %v", destHost, err)
+		logger.Error().Err(err).Msgf("Failed to connect to host %s", destHost)
 		return
 	}
 	defer remoteConn.Close()
