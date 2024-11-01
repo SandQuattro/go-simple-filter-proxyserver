@@ -13,7 +13,7 @@ import (
 var domainList []string
 
 func init() {
-	file, err := os.Open("../../blocked_domains.txt")
+	file, err := os.Open("blocked_domains.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
