@@ -47,7 +47,7 @@ func main() {
 			continue
 		}
 
-		// process out connections concurrently
+		// process our new connections concurrently
 		go handleLoop(conn)
 	}
 }
@@ -75,6 +75,7 @@ func handleLoop(conn net.Conn) {
 		return
 	}
 
+	// this is a request to start proxy tunnel
 	if req.Method == "CONNECT" {
 		// Handle HTTPS tunneling
 		log.Printf("Establishing tunnel to %s", host)
