@@ -211,7 +211,7 @@ func processBlockedHosts(ctx context.Context, conn net.Conn, req *http.Request) 
 	// blocking advertising domains
 	for _, domain := range domainList {
 		if strings.Contains(req.Host, domain) {
-			logger.Printf("Blocking access to %s", req.Host)
+			logger.Warn().Msgf("Blocking access to %s", req.Host)
 
 			if req.Method == "CONNECT" {
 				// Respond with 403 Forbidden for HTTPS sites
