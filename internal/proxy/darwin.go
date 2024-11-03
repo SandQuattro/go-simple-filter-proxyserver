@@ -16,10 +16,8 @@ const (
 		" `(route -n get default | grep 'interface' || route -n get -inet6 default | grep 'interface') | cut -d ':' -f2`" +
 		" -B 1 | head -n 1 | cut -d ' ' -f 2-"
 
-	permissionErrorHelpTextMacOS = "By default SpoofDPI tries to set itself up as a system-wide proxy server.\n" +
-		"Doing so may require root access on machines with\n" +
-		"'Settings > Privacy & Security > Advanced > Require" +
-		" an administrator password to access system-wide settings' enabled.\n"
+	permissionErrorHelpTextMacOS = "We are trying to set our proxy up as a system-wide proxy server.\n" +
+		"This may require root access on this machine."
 )
 
 func SetOsProxy(port uint16) error {
